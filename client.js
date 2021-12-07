@@ -72,7 +72,7 @@ function calculateBonus(employee) {
     employeeComp.bonusPercentage += .05;
   }
   if(Number(employee.annualSalary)>65000) {
-    employeeComp.bonusPercentage = .01;
+    employeeComp.bonusPercentage -= .01;
   }
   if(employeeComp.bonusPercentage>.13) {
     employeeComp.bonusPercentage = .13;
@@ -120,8 +120,8 @@ function showEmployees() {
         <td> ${employeeObjectArray [i].totalBonus}</td>
         </tr>`;
 
-    showEmployees.append(employeeInfo);
   }
+  showEmployees.append(employeeInfo);
   
 }
 
