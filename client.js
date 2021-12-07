@@ -46,7 +46,24 @@ function calculateBonus(employee) {
     name: employee.name,
     
   }
-  if()
+  if(employee.reviewRating<=2) {
+    employeeComp.bonusPercentage = 0;
+  }
+  else if (employee.reviewRating===3) {
+    employeeComp.bonusPercentage = .04;
+  }
+  else if (employee.reviewRating===4) {
+    employeeComp.bonusPercentage = .06;
+  }
+  else if (employee.reviewRating===5) {
+    employeeComp.bonusPercentage = .10;
+  }
+  if(employee.employeeNumber.length===4) {
+    employeeComp.bonusPercentage += .15;
+  }
+  if(employee.annualSalary>65000) {
+    employeeComp.bonusPercentage = .01;
+  }
 
 
   return employeeComp;
