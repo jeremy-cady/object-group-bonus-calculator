@@ -39,7 +39,18 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+
+
 console.log( employees );
+
+// call readyNow function and get document ready
+$(document).ready(readyNow);
+
+// adds functionality to the 'Add Car' button by calling buttonClick function
+function readyNow() {
+  console.log('JQ');
+  $('#runButton').on('click', showEmployees);
+} // end readyNow
 
 function calculateBonus(employee) {
   let employeeComp = {
@@ -85,4 +96,36 @@ for (let employee of employees) {
   console.log(calculateBonus(employee));
 
 }
+
+function showEmployees() {
+  console.log('in showEmployees');
+  let employeeObjectArray = [];
+  for (let i=0; i<employees.length; i++) {
+    employeeObjectArray [i] = calculateBonus(employees [i]); 
+  };
+
+  console.log(employeeObjectArray);
+
+  
+  
+  
+  let showEmployees = $('#compTable');
+  let employeeInfo = '';
+
+  for(let i=0; i<employees.length; i++) {
+     employeeInfo += `<tr>
+        <td> ${employeeObjectArray [i].name}</td>
+        <td> ${employeeObjectArray [i].bonusPercentage}</td>
+        <td> ${employeeObjectArray [i].totalCompensation}</td>
+        <td> ${employeeObjectArray [i].totalBonus}</td>
+        </tr>`;
+
+    showEmployees.append(employeeInfo);
+  }
+  
+}
+
+
+
+
 
