@@ -40,3 +40,14 @@ const employees = [
 // Ask questions when you don't.
 
 console.log( employees );
+
+function calculateBonus(employee) {
+  let employeeComp = {
+    name: employee.name,
+    
+  }
+  if()
+
+
+  return employeeComp;
+}
