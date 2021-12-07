@@ -44,8 +44,7 @@ console.log( employees );
 function calculateBonus(employee) {
   let employeeComp = {
     name: employee.name,
-    
-  }
+  };
   if(employee.reviewRating<=2) {
     employeeComp.bonusPercentage = 0;
   }
@@ -59,12 +58,31 @@ function calculateBonus(employee) {
     employeeComp.bonusPercentage = .10;
   }
   if(employee.employeeNumber.length===4) {
-    employeeComp.bonusPercentage += .15;
+    employeeComp.bonusPercentage += .05;
   }
-  if(employee.annualSalary>65000) {
+  if(Number(employee.annualSalary)>65000) {
     employeeComp.bonusPercentage = .01;
   }
-
+  if(employeeComp.bonusPercentage>.13) {
+    employeeComp.bonusPercentage = .13;
+  }
+  if(employeeComp.bonusPercentage<0) {
+    employeeComp.bonusPercentage = 0;
+  }
+   
+  employeeComp.totalBonus = Math.ceil(employeeComp.bonusPercentage*Number(employee.annualSalary)),
+  employeeComp.totalCompensation = Number(employee.annualSalary) + employeeComp.totalBonus
+  
 
   return employeeComp;
 }
+
+//let c=calculateBonus(employees[0]);
+
+//console.log(c);
+
+for (let employee of employees) {
+  console.log(calculateBonus(employee));
+
+}
+
